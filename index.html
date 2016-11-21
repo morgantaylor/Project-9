@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard App</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,500,700,900" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+    <header class="container header">
+        <div class="logo">
+            Your<span class="not-bold">App<sup>TM</sup></span>
+        </div>
+        <div class="container member">
+            <div class="icon notification">
+                <div class="alert"></div><svg id="Layer_1" style="enable-background:new 0 0 32 32;" version="1.1" viewbox="0 0 32 32" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+                <g>
+                    <g>
+                        <path class="icon-bell" d="M24,18v-8c0-5.5-4.5-10-10-10S4,4.5,4,10v8l-4,8h9.1c0.5,2.3,2.5,4,4.9,4s4.4-1.7,4.9-4H28L24,18z M14,28 c-1.3,0-2.4-0.8-2.8-2h5.6C16.4,27.2,15.3,28,14,28z M3,24l3-6v-8c0-4.4,3.6-8,8-8s8,3.6,8,8v8l3,6H3z"></path>
+                    </g>
+                </g></svg>
+            </div>
+            <div class="member-picture"><img alt="Profile Picture" src="images/members/jamie-smalls.jpg"></div>
+            <div class="member-name">
+                Jamie Smalls
+            </div>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <ul class="container nav">
+            <li class="nav-item" title="Dashboard"><img alt="Dashboard" class="icon" src="images/icons/icon-dashboard.svg"></li>
+            <li class="nav-item" title="Members"><img alt="Members" class="icon" src="images/icons/icon-members.svg"></li>
+            <li class="nav-item" title="Charts"><img alt="Charts" class="icon" src="images/icons/icon-visits.svg"></li>
+            <li class="nav-item" title="Settings"><img alt="Settings" class="icon" src="images/icons/icon-settings.svg"></li>
+        </ul>
+    </nav>
+    <main class="container main-wrapper">
+        <div class="main">
+            <div class="head">
+                <h1>Dashboard</h1>
+                <div class="search-box">
+                    <input name="search" placeholder="Search" type="search">
+                </div>
+            </div>
+            <div class="alertBar" id="alertbar">
+                <div>
+                    <span>Alert</span> This is an alert to let you know that something is happening.
+                </div><span class="exit" id="exit">&#x000D7;</span>
+            </div>
+            <section class="traffic-overview">
+                <div class="head">
+                    <h2 class="headings">Traffic</h2>
+                    <ul>
+                        <li>
+                            <a>Hourly</a>
+                        </li>
+                        <li>
+                            <a>Daily</a>
+                        </li>
+                        <li>
+                            <a>Weekly</a>
+                        </li>
+                        <li>
+                            <a>Monthly</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="chart1"></canvas>
+                </div>
+            </section>
+            <div class="line"></div>
+            <section class="traffic-details">
+                <div class="traffic-daily">
+                    <div class="canvas-container">
+                        <h2 class="headings">Daily traffic</h2>
+                        <canvas id="chart2"></canvas>
+                    </div>
+                </div>
+                <div class="line hidden"></div>
+                <div class="traffic-mobile">
+                    <div class="canvas-container">
+                        <h2 class="headings">Mobile Users</h2>
+                        <canvas id="chart3"></canvas>
+                    </div>
+                </div>
+            </section>
+            <div class="line"></div>
+            <section class="social-media-outer">
+                <h2 class="headings">Social Stats</h2>
+                <div class="social-media-inner">
+                    <div class="social-box">
+                        <span class="social-circle"><svg id="twitter" style="enable-background:new 0 0 32 32;" version="1.1" viewbox="0 0 32 32" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+                        <path d="M32,3.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6C25.8,0.8,24,0,22.2,0 c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5C10.3,7.8,5.5,5.2,2.2,1.2c-0.6,1-0.9,2.1-0.9,3.3c0,2.3,1.2,4.3,2.9,5.5 c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1c2.9,1.9,6.4,3,10.1,3c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C30,5.6,31.1,4.4,32,3.1z" id="twitterColor"></path></svg></span>
+                        <div class="social-text">
+                            <h3>Twitter</h3>
+                            <p>10,345</p>
+                        </div>
+                    </div>
+                    <div class="social-box">
+                        <span class="social-circle"><svg id="facebook" version="1.1" viewbox="0 0 56.693 56.693" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40.43,21.739h-7.645v-5.014c0-1.883,1.248-2.322,2.127-2.322c0.877,0,5.395,0,5.395,0V6.125l-7.43-0.029 c-8.248,0-10.125,6.174-10.125,10.125v5.518h-4.77v8.53h4.77c0,10.947,0,24.137,0,24.137h10.033c0,0,0-13.32,0-24.137h6.77 L40.43,21.739z" id="facebookColor"></path></svg></span>
+                        <div class="social-text">
+                            <h3>Facebook</h3>
+                            <p>8,739</p>
+                        </div>
+                    </div>
+                    <div class="social-box">
+                        <span class="social-circle"><svg id="google" style="enable-background:new 0 0 32 32;" version="1.1" viewbox="0 0 32 32" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+                        <path d="M17.7,25.7c0-0.3,0-0.5-0.1-0.8c-0.1-0.2-0.1-0.5-0.2-0.7c-0.1-0.2-0.2-0.4-0.3-0.7c-0.2-0.2-0.3-0.4-0.4-0.6 c-0.1-0.2-0.3-0.3-0.5-0.6c-0.2-0.2-0.4-0.4-0.5-0.5c-0.1-0.1-0.3-0.3-0.6-0.5c-0.3-0.2-0.5-0.4-0.6-0.4s-0.3-0.2-0.6-0.4 c-0.3-0.2-0.5-0.4-0.6-0.4c-0.2,0-0.5,0-1,0c-0.7,0-1.4,0-2,0.1c-0.7,0.1-1.4,0.2-2.1,0.5c-0.7,0.2-1.3,0.5-1.9,0.9s-1,0.8-1.3,1.4 c-0.3,0.6-0.5,1.3-0.5,2.1c0,0.9,0.2,1.7,0.7,2.3c0.5,0.7,1.1,1.2,1.8,1.6s1.5,0.7,2.3,0.9s1.6,0.3,2.4,0.3c0.8,0,1.5-0.1,2.2-0.2 c0.7-0.2,1.3-0.4,1.9-0.8c0.6-0.3,1.1-0.8,1.4-1.4C17.5,27.2,17.7,26.5,17.7,25.7z M15.4,9.1c0-0.8-0.1-1.6-0.3-2.5 c-0.2-0.9-0.5-1.7-0.9-2.5c-0.4-0.8-0.9-1.5-1.6-2c-0.7-0.5-1.5-0.8-2.3-0.8c-1.2,0-2.1,0.4-2.8,1.3c-0.7,0.9-1,1.9-1,3.2 c0,0.6,0.1,1.2,0.2,1.9c0.1,0.7,0.4,1.3,0.7,2c0.3,0.7,0.7,1.3,1.1,1.8c0.4,0.5,0.9,1,1.5,1.3c0.6,0.3,1.2,0.5,1.9,0.5 c1.2,0,2.1-0.4,2.7-1.2C15.1,11.4,15.4,10.4,15.4,9.1z M12.9,0h8.4l-2.6,1.5h-2.6c0.9,0.6,1.6,1.4,2.1,2.4s0.8,2.1,0.8,3.2 c0,0.9-0.1,1.8-0.4,2.5c-0.3,0.7-0.7,1.3-1.1,1.8c-0.4,0.4-0.8,0.9-1.3,1.2c-0.4,0.4-0.8,0.8-1.1,1.2c-0.3,0.4-0.4,0.8-0.4,1.3 c0,0.3,0.1,0.7,0.3,1c0.2,0.3,0.5,0.6,0.8,0.9c0.3,0.3,0.7,0.6,1.1,0.9c0.4,0.3,0.8,0.7,1.2,1.1c0.4,0.4,0.8,0.8,1.1,1.3 c0.3,0.5,0.6,1,0.8,1.6c0.2,0.6,0.3,1.3,0.3,2c0,2.1-0.9,3.9-2.7,5.4c-1.9,1.7-4.6,2.5-8.1,2.5c-0.8,0-1.5-0.1-2.3-0.2 c-0.8-0.1-1.6-0.3-2.3-0.6c-0.8-0.3-1.5-0.7-2.1-1.1c-0.6-0.4-1.1-1-1.5-1.7C1,27.6,0.8,26.9,0.8,26c0-0.8,0.2-1.6,0.7-2.6 c0.4-0.8,1-1.5,1.8-2.1c0.8-0.6,1.8-1.1,2.8-1.4c1-0.3,2-0.5,3-0.7c0.9-0.1,1.9-0.2,2.9-0.3c-0.8-1.1-1.2-2-1.2-2.9 c0-0.2,0-0.3,0-0.5c0-0.1,0.1-0.3,0.1-0.4c0-0.1,0.1-0.2,0.2-0.4c0.1-0.2,0.1-0.3,0.1-0.4c-0.5,0.1-1,0.1-1.3,0.1 c-1.9,0-3.5-0.6-4.9-1.9c-1.4-1.3-2-2.8-2-4.7c0-1.8,0.6-3.4,1.8-4.8C6,1.7,7.5,0.8,9.3,0.4C10.5,0.1,11.7,0,12.9,0z M32.8,4.9v2.5 h-4.9v4.9h-2.5V7.4h-4.9V4.9h4.9V0h2.5v4.9H32.8z" id="googleColor"></path></svg></span>
+                        <div class="social-text">
+                            <h3>Google+</h3>
+                            <p>2,530</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="line"></div>
+            <section class="members-wrapper">
+                <div class="new-members-outer">
+                    <h2 class="headings">New Members</h2>
+                    <div class="new-members">
+                        <div class="new-member">
+                            <img alt="Amanda Tweed" src="images/members/amanda-tweed.jpg">
+                            <div class="new-member-inner">
+                                <div class="new-member-name">
+                                    Amanda Tweed
+                                </div>
+                                <div class="new-member-email">
+                                    amanda.tweed@gmail.com
+                                </div>
+                            </div>
+                            <p class="new-member-date">11/11/16</p>
+                        </div>
+                        <div class="new-member">
+                            <img alt="Jessica South" src="images/members/jessica-south.jpg">
+                            <div class="new-member-inner">
+                                <div class="new-member-name">
+                                    Jessica South
+                                </div>
+                                <div class="new-member-email">
+                                    jessica.south@gmail.com
+                                </div>
+                            </div>
+                            <p class="new-member-date">11/10/16</p>
+                        </div>
+                        <div class="new-member">
+                            <img alt="Manny Ramirez" src="images/members/manny-ramirez.jpg">
+                            <div class="new-member-inner">
+                                <div class="new-member-name">
+                                    Manny Ramirez
+                                </div>
+                                <div class="new-member-email">
+                                    manny.ramirez@gmail.com
+                                </div>
+                            </div>
+                            <p class="new-member-date">11/09/16</p>
+                        </div>
+                        <div class="new-member">
+                            <img alt="Martha Pills" src="images/members/martha-pills.jpg">
+                            <div class="new-member-inner">
+                                <div class="new-member-name">
+                                    Martha Pills
+                                </div>
+                                <div class="new-member-email">
+                                    martha.pills@gmail.com
+                                </div>
+                            </div>
+                            <p class="new-member-date">11/29/16</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="line hidden"></div>
+                <div class="recent-activity">
+                    <h2 class="headings">Recent Activity</h2>
+                    <div class="new-members">
+                        <div class="new-member">
+                            <img alt="Amanda Tweed" src="images/members/amanda-tweed.jpg">
+                            <div class="new-member-inner">
+                                <div class="new-member-name">
+                                    <span>Amanda Tweed</span> commented on YourApp's picture
+                                </div>
+                                <div class="new-member-email">
+                                    2 hours ago
+                                </div>
+                            </div>
+                        </div>
+                        <div class="new-member">
+                            <img alt="Jessica South" src="images/members/jessica-south.jpg">
+                            <div class="new-member-inner">
+                                <div class="new-member-name">
+                                    <span>Jessica South</span> made a post on your page
+                                </div>
+                                <div class="new-member-email">
+                                    5 hours ago
+                                </div>
+                            </div>
+                        </div>
+                        <div class="new-member">
+                            <img alt="Manny Ramirez" src="images/members/manny-ramirez.jpg">
+                            <div class="new-member-inner">
+                                <div class="new-member-name">
+                                    <span>Manny Ramirez</span> liked your photo
+                                </div>
+                                <div class="new-member-email">
+                                    7 hours ago
+                                </div>
+                            </div>
+                        </div>
+                        <div class="new-member">
+                            <img alt="Martha Pills" src="images/members/martha-pills.jpg">
+                            <div class="new-member-inner">
+                                <div class="new-member-name">
+                                    <span>Martha Pills</span> is now a new member
+                                </div>
+                                <div class="new-member-email">
+                                    9 hours ago
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="line"></div>
+            <section class="forms-wrapper">
+                <div class="message-user">
+                    <h2 class="headings">Message user</h2>
+                    <form class="form">
+                        <fieldset>
+                            <label class="form-hidden" for="name">Search For User Name</label> <input id="name" placeholder="Search for User" required="" type="text"> <label class="form-hidden" for="message">Message For User</label> 
+                            <textarea id="message" placeholder="Message For User" required=""></textarea> <button class="form-button sendForm" type="submit" value="send">Send</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="line hidden"></div>
+                <div class="settings">
+                    <h2 class="headings">Settings</h2>
+                    <div class="settings-inner">
+                        <label class="switch-light switch-material" onclick=""><input type="checkbox"> <strong>Send Email Notification</strong> <span><span>Off</span> <span>On</span> <a></a></span></label> <label class="switch-light switch-material" onclick=""><input type="checkbox"> <strong>Set Profile to Public</strong> <span><span>Off</span> <span>On</span> <a></a></span></label> <select name="timezone">
+                            <option value="default">
+                                Select Timezone
+                            </option>
+                            <option value="Pacific/Midway">
+                                (GMT-11:00) Midway Island, Samoa
+                            </option>
+                            <option value="America/Adak">
+                                (GMT-10:00) Hawaii-Aleutian
+                            </option>
+                            <option value="Etc/GMT+10">
+                                (GMT-10:00) Hawaii
+                            </option>
+                            <option value="Pacific/Marquesas">
+                                (GMT-09:30) Marquesas Islands
+                            </option>
+                            <option value="Pacific/Gambier">
+                                (GMT-09:00) Gambier Islands
+                            </option>
+                            <option value="America/Anchorage">
+                                (GMT-09:00) Alaska
+                            </option>
+                            <option value="America/Ensenada">
+                                (GMT-08:00) Tijuana, Baja California
+                            </option>
+                            <option value="Etc/GMT+8">
+                                (GMT-08:00) Pitcairn Islands
+                            </option>
+                            <option value="America/Los_Angeles">
+                                (GMT-08:00) Pacific Time (US & Canada)
+                            </option>
+                            <option value="America/Denver">
+                                (GMT-07:00) Mountain Time (US & Canada)
+                            </option>
+                            <option value="America/Chihuahua">
+                                (GMT-07:00) Chihuahua, La Paz, Mazatlan
+                            </option>
+                            <option value="America/Dawson_Creek">
+                                (GMT-07:00) Arizona
+                            </option>
+                            <option value="America/Belize">
+                                (GMT-06:00) Saskatchewan, Central America
+                            </option>
+                            <option value="America/Cancun">
+                                (GMT-06:00) Guadalajara, Mexico City, Monterrey
+                            </option>
+                            <option value="Chile/EasterIsland">
+                                (GMT-06:00) Easter Island
+                            </option>
+                            <option value="America/Chicago">
+                                (GMT-06:00) Central Time (US & Canada)
+                            </option>
+                            <option value="America/New_York">
+                                (GMT-05:00) Eastern Time (US & Canada)
+                            </option>
+                            <option value="America/Havana">
+                                (GMT-05:00) Cuba
+                            </option>
+                            <option value="America/Bogota">
+                                (GMT-05:00) Bogota, Lima, Quito, Rio Branco
+                            </option>
+                            <option value="America/Caracas">
+                                (GMT-04:30) Caracas
+                            </option>
+                            <option value="America/Santiago">
+                                (GMT-04:00) Santiago
+                            </option>
+                            <option value="America/La_Paz">
+                                (GMT-04:00) La Paz
+                            </option>
+                            <option value="Atlantic/Stanley">
+                                (GMT-04:00) Faukland Islands
+                            </option>
+                            <option value="America/Campo_Grande">
+                                (GMT-04:00) Brazil
+                            </option>
+                            <option value="America/Goose_Bay">
+                                (GMT-04:00) Atlantic Time (Goose Bay)
+                            </option>
+                            <option value="America/Glace_Bay">
+                                (GMT-04:00) Atlantic Time (Canada)
+                            </option>
+                            <option value="America/St_Johns">
+                                (GMT-03:30) Newfoundland
+                            </option>
+                            <option value="America/Araguaina">
+                                (GMT-03:00) UTC-3
+                            </option>
+                            <option value="America/Montevideo">
+                                (GMT-03:00) Montevideo
+                            </option>
+                            <option value="America/Miquelon">
+                                (GMT-03:00) Miquelon, St. Pierre
+                            </option>
+                            <option value="America/Godthab">
+                                (GMT-03:00) Greenland
+                            </option>
+                            <option value="America/Argentina/Buenos_Aires">
+                                (GMT-03:00) Buenos Aires
+                            </option>
+                            <option value="America/Sao_Paulo">
+                                (GMT-03:00) Brasilia
+                            </option>
+                            <option value="America/Noronha">
+                                (GMT-02:00) Mid-Atlantic
+                            </option>
+                            <option value="Atlantic/Cape_Verde">
+                                (GMT-01:00) Cape Verde Is.
+                            </option>
+                            <option value="Atlantic/Azores">
+                                (GMT-01:00) Azores
+                            </option>
+                            <option value="Europe/Belfast">
+                                (GMT) Greenwich Mean Time : Belfast
+                            </option>
+                            <option value="Europe/Dublin">
+                                (GMT) Greenwich Mean Time : Dublin
+                            </option>
+                            <option value="Europe/Lisbon">
+                                (GMT) Greenwich Mean Time : Lisbon
+                            </option>
+                            <option value="Europe/London">
+                                (GMT) Greenwich Mean Time : London
+                            </option>
+                            <option value="Africa/Abidjan">
+                                (GMT) Monrovia, Reykjavik
+                            </option>
+                            <option value="Europe/Amsterdam">
+                                (GMT+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna
+                            </option>
+                            <option value="Europe/Belgrade">
+                                (GMT+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague
+                            </option>
+                            <option value="Europe/Brussels">
+                                (GMT+01:00) Brussels, Copenhagen, Madrid, Paris
+                            </option>
+                            <option value="Africa/Algiers">
+                                (GMT+01:00) West Central Africa
+                            </option>
+                            <option value="Africa/Windhoek">
+                                (GMT+01:00) Windhoek
+                            </option>
+                            <option value="Asia/Beirut">
+                                (GMT+02:00) Beirut
+                            </option>
+                            <option value="Africa/Cairo">
+                                (GMT+02:00) Cairo
+                            </option>
+                            <option value="Asia/Gaza">
+                                (GMT+02:00) Gaza
+                            </option>
+                            <option value="Africa/Blantyre">
+                                (GMT+02:00) Harare, Pretoria
+                            </option>
+                            <option value="Asia/Jerusalem">
+                                (GMT+02:00) Jerusalem
+                            </option>
+                            <option value="Europe/Minsk">
+                                (GMT+02:00) Minsk
+                            </option>
+                            <option value="Asia/Damascus">
+                                (GMT+02:00) Syria
+                            </option>
+                            <option value="Europe/Moscow">
+                                (GMT+03:00) Moscow, St. Petersburg, Volgograd
+                            </option>
+                            <option value="Africa/Addis_Ababa">
+                                (GMT+03:00) Nairobi
+                            </option>
+                            <option value="Asia/Tehran">
+                                (GMT+03:30) Tehran
+                            </option>
+                            <option value="Asia/Dubai">
+                                (GMT+04:00) Abu Dhabi, Muscat
+                            </option>
+                            <option value="Asia/Yerevan">
+                                (GMT+04:00) Yerevan
+                            </option>
+                            <option value="Asia/Kabul">
+                                (GMT+04:30) Kabul
+                            </option>
+                            <option value="Asia/Yekaterinburg">
+                                (GMT+05:00) Ekaterinburg
+                            </option>
+                            <option value="Asia/Tashkent">
+                                (GMT+05:00) Tashkent
+                            </option>
+                            <option value="Asia/Kolkata">
+                                (GMT+05:30) Chennai, Kolkata, Mumbai, New Delhi
+                            </option>
+                            <option value="Asia/Katmandu">
+                                (GMT+05:45) Kathmandu
+                            </option>
+                            <option value="Asia/Dhaka">
+                                (GMT+06:00) Astana, Dhaka
+                            </option>
+                            <option value="Asia/Novosibirsk">
+                                (GMT+06:00) Novosibirsk
+                            </option>
+                            <option value="Asia/Rangoon">
+                                (GMT+06:30) Yangon (Rangoon)
+                            </option>
+                            <option value="Asia/Bangkok">
+                                (GMT+07:00) Bangkok, Hanoi, Jakarta
+                            </option>
+                            <option value="Asia/Krasnoyarsk">
+                                (GMT+07:00) Krasnoyarsk
+                            </option>
+                            <option value="Asia/Hong_Kong">
+                                (GMT+08:00) Beijing, Chongqing, Hong Kong, Urumqi
+                            </option>
+                            <option value="Asia/Irkutsk">
+                                (GMT+08:00) Irkutsk, Ulaan Bataar
+                            </option>
+                            <option value="Australia/Perth">
+                                (GMT+08:00) Perth
+                            </option>
+                            <option value="Australia/Eucla">
+                                (GMT+08:45) Eucla
+                            </option>
+                            <option value="Asia/Tokyo">
+                                (GMT+09:00) Osaka, Sapporo, Tokyo
+                            </option>
+                            <option value="Asia/Seoul">
+                                (GMT+09:00) Seoul
+                            </option>
+                            <option value="Asia/Yakutsk">
+                                (GMT+09:00) Yakutsk
+                            </option>
+                            <option value="Australia/Adelaide">
+                                (GMT+09:30) Adelaide
+                            </option>
+                            <option value="Australia/Darwin">
+                                (GMT+09:30) Darwin
+                            </option>
+                            <option value="Australia/Brisbane">
+                                (GMT+10:00) Brisbane
+                            </option>
+                            <option value="Australia/Hobart">
+                                (GMT+10:00) Hobart
+                            </option>
+                            <option value="Asia/Vladivostok">
+                                (GMT+10:00) Vladivostok
+                            </option>
+                            <option value="Australia/Lord_Howe">
+                                (GMT+10:30) Lord Howe Island
+                            </option>
+                            <option value="Etc/GMT-11">
+                                (GMT+11:00) Solomon Is., New Caledonia
+                            </option>
+                            <option value="Asia/Magadan">
+                                (GMT+11:00) Magadan
+                            </option>
+                            <option value="Pacific/Norfolk">
+                                (GMT+11:30) Norfolk Island
+                            </option>
+                            <option value="Asia/Anadyr">
+                                (GMT+12:00) Anadyr, Kamchatka
+                            </option>
+                            <option value="Pacific/Auckland">
+                                (GMT+12:00) Auckland, Wellington
+                            </option>
+                            <option value="Etc/GMT-12">
+                                (GMT+12:00) Fiji, Kamchatka, Marshall Is.
+                            </option>
+                            <option value="Pacific/Chatham">
+                                (GMT+12:45) Chatham Islands
+                            </option>
+                            <option value="Pacific/Tongatapu">
+                                (GMT+13:00) Nuku'alofa
+                            </option>
+                            <option value="Pacific/Kiritimati">
+                                (GMT+14:00) Kiritimati
+                            </option>
+                        </select>
+                        <div class="buttons-wrapper">
+                            <button class="form-button" type="submit" value="send">Save</button> <button class="form-button form-reset" type="reset" value="reset">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+    </script> 
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js">
+    </script> 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js'>
+    </script> 
+    <script src="charts.js" type="text/javascript">
+    </script> 
+    <script src="app.js" type="text/javascript">
+    </script>
+</body>
+</html>
