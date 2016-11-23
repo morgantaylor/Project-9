@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$(".exit").click(function() {
+    $(".exit").click(function() {
         $(".alertBar").addClass("hidden");
         $(".alert").addClass("hidden");
     });
@@ -7,9 +7,25 @@ $(document).ready(function() {
         $(".alertBar").addClass("hidden");
         $(".alert").addClass("hidden");
     });
-    var formName = document.getElementById("name");
-    var formMessage = document.getElementById("message");
     $(".sendForm").click(function() {
-    	alert("Your message has been sent.");
+        formSubmit();
     });
+
+    function formSubmit() {
+        var formName = document.getElementById("name");
+        var formMessage = document.getElementById("message");
+
+        if (formName.value == "") {
+            alert( "Please enter your name." );
+            formName.focus();
+            return false;
+        } else if (formMessage.value == "") {
+            alert( "Please enter your message." );
+            formMessage.focus();
+            return false;
+        } else {
+            alert("Your message has been submitted.");
+            return true;
+        }
+    };
 });
