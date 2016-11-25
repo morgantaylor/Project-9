@@ -801,6 +801,16 @@ textarea {
 .message-user textarea {
   resize: auto;
   height: 100px; }
+.message-user #form-alert {
+  display: none;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.3em;
+  background: #ff0000;
+  margin-bottom: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
 
 .settings .buttons-wrapper {
   margin: 25px 0 0 0;

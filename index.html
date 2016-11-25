@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,500,700,900" rel="stylesheet">
-    <link href="main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
     <header class="container header">
@@ -245,8 +245,10 @@
                     <h2 class="headings">Message user</h2>
                     <form class="form">
                         <fieldset>
-                            <label class="form-hidden" for="name">Search For User Name</label> <input id="name" placeholder="Search for User" type="text" nam="name"> <label class="form-hidden" for="message">Message For User</label> 
-                            <textarea id="message" placeholder="Message For User" name="message"></textarea> <button class="form-button sendForm" id="send" type="submit" value="send" onsubmit="return checkform(this);">Send</button>
+                            <label class="form-hidden" for="name">Search For User Name</label> <input id="name" placeholder="Search for User" type="text" name="name"> <label class="form-hidden" for="message">Message For User</label> 
+                            <textarea id="message" placeholder="Message For User" name="message"></textarea> 
+                            <div id="form-alert"></div>
+                            <button class="form-button" id="send" type="submit" value="send">Send</button>
                         </fieldset>
                     </form>
                 </div>

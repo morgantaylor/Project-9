@@ -10,22 +10,22 @@ $(document).ready(function() {
     $(".sendForm").click(function() {
         formSubmit();
     });
-
-    function formSubmit() {
-        var formName = document.getElementById("name");
-        var formMessage = document.getElementById("message");
-
-        if (formName.value == "") {
-            alert( "Please enter your name." );
-            formName.focus();
-            return false;
-        } else if (formMessage.value == "") {
-            alert( "Please enter your message." );
-            formMessage.focus();
-            return false;
-        } else {
-            alert("Your message has been submitted.");
-            return true;
+    //Form validation
+     $("#send").click(function(){
+        var alert = $("#form-alert");
+        var search = $("#name");
+        var message = $("#message"); 
+        if ( search.val() === '' || message.val() === '' ){
+            alert.css("display", "block");
+            alert.css("color", "white");
+                alert.text("Username and message are required!");
         }
-    };
+        else {
+            alert.css("display", "block");
+            alert.css("background-color", "#00b300");
+            alert.css("color", "white");
+                alert.text("Message Sent!").delay(500).fadeOut("slow");
+        }
+        return false;
+    });
 });
